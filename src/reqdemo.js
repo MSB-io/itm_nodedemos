@@ -1,11 +1,10 @@
+
+//https://github.com/mgulrajani/itm_nodedemos.git
+
 import http from 'http';
 import fs from 'fs';
-import { parse } from 'path';
-
-
-
+import { parse } from 'path'
 const server =  http.createServer((req,res)=>{
-
     const url = req.url
     const method= req.method
 
