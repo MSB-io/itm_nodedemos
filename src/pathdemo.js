@@ -5,7 +5,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 
-const fullPath = path.join('/users', 'nidhi', 'documents', 'file.txt');
+const fullPath = path.join('/users', 'nidhi', 'documents', '..','users','rahul','file.txt');
 console.log(fullPath); 
 
 
