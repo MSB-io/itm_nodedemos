@@ -1,0 +1,31 @@
+1. create a user by using url -- localhost:3000/api/auth/register  --POST request
+provide { 
+
+    "username":"sampleuser",
+    "password":"pwd"
+}
+you will get 201 status code for succesfully registered
+
+second step login 
+using  localhost:3000/api/auth/login ---GET request
+
+provide { 
+
+    "username":"sampleuser",
+    "password":"pwd"
+}  as a request body
+response will have a token , use that token for the protected routes
+like the one that we are testing below 
+
+3rd step -- api testing of POST of student
+api/students  POST request
+with the bearer token in AUthorization header of the request object
+with Bearer <token>
+
+{
+"name":"abhijit",
+"age":21,
+"enrolled":true
+
+}
+
