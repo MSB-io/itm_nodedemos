@@ -1,12 +1,17 @@
 import request from 'supertest';
 import app from '../app.js'
 import mongoose from 'mongoose';
+import { User } from '../models/user.js';
 
 beforeAll(async () => {
   await mongoose.connect(process.env.MONGO_URI);
+  // Clean up test user before tests
+  await User.deleteOne({ username: "testuser12" });
 });
 
 afterAll(async () => {
+  // Clean up test user after tests
+  await User.deleteOne({ username: "testuser12" });
   await mongoose.connection.close();
 });
 

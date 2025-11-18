@@ -1,11 +1,15 @@
 import request from 'supertest';
 import app from '../app.js'
 import mongoose from 'mongoose';
+import { User } from '../models/user.js';
 
 let token;
 
 beforeAll(async () => {
   await mongoose.connect(process.env.MONGO_URI);
+
+  // Clean up test user before tests
+  await User.deleteOne({ username: "studentuser" });
 
   // Register & login to get token
   await request(app)
@@ -20,6 +24,8 @@ beforeAll(async () => {
 });
 
 afterAll(async () => {
+  // Clean up test user after tests
+  await User.deleteOne({ username: "studentuser" });
   await mongoose.connection.close();
 });
 
